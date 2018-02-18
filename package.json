@@ -1,0 +1,35 @@
+{
+  "name": "@passmarked/dns",
+  "version": "1.0.0",
+  "description": "Rules related to checking your domain and DNS servers - mostly for security issues",
+  "main": "index.js",
+  "scripts": {
+    "test": "NODE_ENV=testing mocha"
+  },
+  "author": "Passmarked <devops@passmarked.com>",
+  "keywords": [
+    "passmarked",
+    "dns",
+    "domain",
+    "dnssec",
+    "server",
+    "rules",
+    "tests",
+    "performance",
+    "security",
+    "standards"
+  ],
+  "license": "Apache-2.0",
+  "dependencies": {
+    "dns-then": "^0.1.0",
+    "passmarked": "*",
+    "underscore": "^1.8.3"
+  },
+  "devDependencies": {
+    "chai": "^2.1.0",
+    "coffeelint": "^1.9.2",
+    "mocha": "^2.1.0",
+    "sinon": "^1.12.2",
+    "sinon-chai": "^2.7.0"
+  }
+}
