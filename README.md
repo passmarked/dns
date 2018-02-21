@@ -12,6 +12,7 @@ All of the checks on [Passmarked](https://passmarked.com?source=github&repo=dns)
 
 The rules checked in this module are:
 
+* **public** - One ore more of your name servers are not accessible over the internet and are using a private address
 * **count** - Less than <2 ip records on your main domain name, this is bad as it does not offer failover
 * **response** - The SOA of the hostname could not be requested from the specific name server that was configured
 
