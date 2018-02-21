@@ -4,14 +4,14 @@ const fs          = require('fs');
 const passmarked  = require('passmarked');
 const testFunc    = require('../lib/client');
 
-describe('client', function() {
+describe('count', function() {
     
-  it('Should not return an error if it can\'t connect to DNS servers', function(done) {
+  it('Should not return a error if the server returned more than 2 records', function(done) {
   
     // handle the payload
     var payload = passmarked.createPayload({
 
-      url: 'http://example2.com'
+      url: 'http://passmarked.com'
 
     }, { log: { entries: [] } }, '')
 
@@ -20,14 +20,27 @@ describe('client', function() {
       // check if there is a err
       if(err) assert.fail(err);
 
+      // get the rules
+      var rules = payload.getRules();
+
+      // get the rule
+      var rule = _.find(rules || [], function(item) {
+
+        return item.key == 'count';
+
+      });
+
+      // fail if we got a error
+      if(rule) assert.fail();
+
       // done
       done()
 
     });
   
   });
-    
-  it('Should not return an error if we can connect to DNS servers', function(done) {
+
+  it('Should return a error if the server returned more than 2 records', function(done) {
   
     // handle the payload
     var payload = passmarked.createPayload({
@@ -40,6 +53,19 @@ describe('client', function() {
 
       // check if there is a err
       if(err) assert.fail(err);
+
+      // get the rules
+      var rules = payload.getRules();
+
+      // get the rule
+      var rule = _.find(rules || [], function(item) {
+
+        return item.key == 'count';
+
+      });
+
+      // fail if we got a error
+      if(!rule) assert.fail();
 
       // done
       done()

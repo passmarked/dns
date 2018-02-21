@@ -1,6 +1,6 @@
 {
     "key": "security.dns",
-    "crawl": false,
+    "crawl": true,
     "track": true
   }
   
